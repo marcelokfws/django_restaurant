@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 from decouple import config
@@ -131,3 +132,12 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+if DEBUG == True:
+    os.environ['PATH'] = os.path.join(
+        BASE_DIR, 'venv\Lib\site-packages\osgeo') + ';' + os.environ['PATH']
+    os.environ['PROJ_LIB'] = os.path.join(
+        BASE_DIR, 'venv\Lib\site-packages\osgeo\data\proj') + ';' + os.environ['PATH']
+    GDAL_LIBRARY_PATH = os.path.join(
+        BASE_DIR, 'venv\Lib\site-packages\osgeo\gdal304.dll')
