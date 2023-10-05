@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 
 from decouple import config
+from django.contrib.messages import constants as messages
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'accounts',
     'django.contrib.gis',
+    'vendor_',
+
 ]
 
 MIDDLEWARE = [
@@ -130,10 +133,18 @@ STATICFILES_DIRS = [
     'foodOnline_main/static'
 ]
 
+# Media files configuration
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
 
 
 if DEBUG == True:
@@ -143,3 +154,11 @@ if DEBUG == True:
         BASE_DIR, 'venv\Lib\site-packages\osgeo\data\proj') + ';' + os.environ['PATH']
     GDAL_LIBRARY_PATH = os.path.join(
         BASE_DIR, 'venv\Lib\site-packages\osgeo\gdal304.dll')
+
+# Email configuration
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT', cast=int)
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_TLS = True
+DEFAULT_FROM_EMAIL = 'foodOnline Marketplace <django.marceloesileia@gmail.com>'
