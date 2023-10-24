@@ -98,15 +98,15 @@ def place_order(request):
                     "key2": "value2"
                 }
             }
-            rzp_order = client.order.create(data=DATA)
-            rzp_order_id = rzp_order['id']
+            # rzp_order = client.order.create(data=DATA)
+            # rzp_order_id = rzp_order['id']
 
             context = {
                 'order': order,
                 'cart_items': cart_items,
-                'rzp_order_id': rzp_order_id,
-                'RZP_KEY_ID': RZP_KEY_ID,
-                'rzp_amount': float(order.total) * 100,
+                # 'rzp_order_id': rzp_order_id,
+                # 'RZP_KEY_ID': RZP_KEY_ID,
+                # 'rzp_amount': float(order.total) * 100,
             }
             return render(request, 'orders/place_order.html', context)
 
@@ -196,7 +196,7 @@ def payments(request):
                 send_notification(mail_subject, mail_template, context)
 
         # CLEAR THE CART IF THE PAYMENT IS SUCCESS
-        # cart_items.delete()
+        cart_items.delete()
 
         # RETURN BACK TO AJAX WITH THE STATUS SUCCESS OR FAILURE
         response = {

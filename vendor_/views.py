@@ -1,7 +1,4 @@
-from unicodedata import category
-from urllib import response
 
-import vendor_
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.db import IntegrityError

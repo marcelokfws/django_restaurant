@@ -4,10 +4,9 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from . import views
-
 from marketplace import views as MarketplaceViews
 
+from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,6 +24,6 @@ urlpatterns = [
     path('checkout/', MarketplaceViews.checkout, name='checkout'),
 
     # # ORDERS
-    # path('orders/', include('orders.urls')),
+    path('orders/', include('orders.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

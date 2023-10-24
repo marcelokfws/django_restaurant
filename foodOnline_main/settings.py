@@ -48,8 +48,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
-#     'orders.request_object.RequestObjectMiddleware',
+
+    #     'orders.request_object.RequestObjectMiddleware',
 ]
 
 ROOT_URLCONF = 'foodOnline_main.urls'
@@ -167,3 +167,8 @@ DEFAULT_FROM_EMAIL = 'foodOnline Marketplace <django.marceloesileia@gmail.com>'
 
 GOOGLE_API_KEY = config('GOOGLE_API_KEY')
 PAYPAL_CLIENT_ID = config('PAYPAL_CLIENT_ID')
+
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
+
+RZP_KEY_ID = config('RZP_KEY_ID')
+RZP_KEY_SECRET = config('RZP_KEY_SECRET')

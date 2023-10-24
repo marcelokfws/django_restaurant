@@ -103,6 +103,9 @@
                                             {% if order.payment_method == 'PayPal' %}
                                             <!-- PayPal Checkout Button -->
                                             <div id="paypal-button-container"></div>
+                                            <script src="https://www.paypal.com/sdk/js?client-id=test&components=buttons&enable-funding=paylater,venmo,card" data-sdk-integration-source="integrationbuilder_sc"></script>
+
+                                            
                                             {% elif order.payment_method == 'RazorPay' %}
                                             <div id="rzp_payment_button">
                                                 <button class="btn btn-danger w-100 p-2" id="rzp-button1">Pay with RazorPay</button>

@@ -8,11 +8,11 @@ from django.contrib.gis.measure import \
 from django.db.models import Prefetch, Q
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
+from vendor_.models import OpeningHour, Vendor
 
 from accounts.models import UserProfile
 from menu.models import Category, FoodItem
 from orders.forms import OrderForm
-from vendor_.models import OpeningHour, Vendor
 
 from .context_processors import get_cart_amounts, get_cart_counter
 from .models import Cart
