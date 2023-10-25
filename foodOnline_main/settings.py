@@ -48,8 +48,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # custom middleware created to access the request object in models.py
+    'orders.request_object.RequestObjectMiddleware',
 
-    #     'orders.request_object.RequestObjectMiddleware',
 ]
 
 ROOT_URLCONF = 'foodOnline_main.urls'
@@ -169,4 +170,3 @@ GOOGLE_API_KEY = config('GOOGLE_API_KEY')
 PAYPAL_CLIENT_ID = config('PAYPAL_CLIENT_ID')
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin-allow-popups'
-

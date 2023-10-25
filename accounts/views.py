@@ -200,7 +200,7 @@ def vendorDashboard(request):
         vendors__in=[vendor.id], is_ordered=True).order_by('created_at')
     recent_orders = orders[:10]
 
-    # current month's revenue
+    #current month's revenue
     current_month = datetime.now().month
     current_month_orders = orders.filter(
         vendors__in=[vendor.id], created_at__month=current_month)
